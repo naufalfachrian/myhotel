@@ -94,6 +94,18 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconRoom.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconRestaurant.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconFacility.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconRoom.imageset\ic_local_hotel_3x.png" />
+    <ImageAsset Include="Assets.xcassets\IconRoom.imageset\ic_local_hotel_2x.png" />
+    <ImageAsset Include="Assets.xcassets\IconRoom.imageset\ic_local_hotel.png" />
+    <ImageAsset Include="Assets.xcassets\IconRestaurant.imageset\ic_local_dining_2x.png" />
+    <ImageAsset Include="Assets.xcassets\IconRestaurant.imageset\ic_local_dining_3x.png" />
+    <ImageAsset Include="Assets.xcassets\IconRestaurant.imageset\ic_local_dining.png" />
+    <ImageAsset Include="Assets.xcassets\IconFacility.imageset\ic_accessibility_2x.png" />
+    <ImageAsset Include="Assets.xcassets\IconFacility.imageset\ic_accessibility_3x.png" />
+    <ImageAsset Include="Assets.xcassets\IconFacility.imageset\ic_accessibility.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -103,6 +115,9 @@
     <Folder Include="ViewControllers\FacilityList\" />
     <Folder Include="ViewCells\" />
     <Folder Include="ViewCells\FeedItem\" />
+    <Folder Include="Assets.xcassets\IconRoom.imageset\" />
+    <Folder Include="Assets.xcassets\IconRestaurant.imageset\" />
+    <Folder Include="Assets.xcassets\IconFacility.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

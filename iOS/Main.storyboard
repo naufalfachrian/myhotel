@@ -34,6 +34,7 @@
                         <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="692" kind="relationship" relationship="viewControllers" id="826"/>
@@ -217,9 +218,7 @@
                             <outlet property="delegate" destination="692" id="695"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Room" id="825">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Room" image="IconRoom" id="825"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="BlankFooter" destination="Efn-wq-LBA" id="rUf-2A-kRx"/>
@@ -399,9 +398,7 @@
                             <outlet property="delegate" destination="706" id="709"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Restaurant" id="878">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Restaurant" image="IconRestaurant" id="878"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="BlankFooter" destination="8KG-dv-A1s" id="oe3-wx-sXG"/>
@@ -581,9 +578,7 @@
                             <outlet property="delegate" destination="728" id="731"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Facility" id="947">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Facility" image="IconFacility" id="947"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="BlankFooter" destination="7GC-Op-Ymj" id="IqG-1f-ctF"/>
@@ -599,4 +594,9 @@
             <point key="canvasLocation" x="1393" y="951"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IconFacility" width="24" height="24"/>
+        <image name="IconRestaurant" width="24" height="24"/>
+        <image name="IconRoom" width="24" height="24"/>
+    </resources>
 </document>
