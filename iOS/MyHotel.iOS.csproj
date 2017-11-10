@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyHotel\MyHotel.csproj">
@@ -98,6 +101,8 @@
     <Folder Include="ViewControllers\RoomList\" />
     <Folder Include="ViewControllers\RestaurantList\" />
     <Folder Include="ViewControllers\FacilityList\" />
+    <Folder Include="ViewCells\" />
+    <Folder Include="ViewCells\FeedItem\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -106,6 +111,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -121,6 +127,10 @@
     <Compile Include="ViewControllers\FacilityList\FacilityListViewController.cs" />
     <Compile Include="ViewControllers\FacilityList\FacilityListViewController.designer.cs">
       <DependentUpon>FacilityListViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCells\FeedItem\FeedItemViewCell.cs" />
+    <Compile Include="ViewCells\FeedItem\FeedItemViewCell.designer.cs">
+      <DependentUpon>FeedItemViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

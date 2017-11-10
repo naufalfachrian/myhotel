@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using MyHotel.iOS.ViewCells.FeedItem;
 using MyHotel.Models;
+using MyHotel.NetworkRequest;
 using MyHotel.ViewModels;
 using UIKit;
 
@@ -34,14 +36,13 @@ namespace MyHotel.iOS.ViewControllers.RoomList
 
         public override nint RowsInSection(UITableView tableView, nint section) => viewModel.Rooms.Count;
 
-        public override nfloat GetHeightForRow(UITableView tableView, Foundation.NSIndexPath indexPath) => 60;
+        public override nfloat GetHeightForRow(UITableView tableView, Foundation.NSIndexPath indexPath) => 188;
 
         public override UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell("BasicCell", indexPath);
+            FeedItemViewCell cell = (FeedItemViewCell) tableView.DequeueReusableCell("RoomItemViewCell", indexPath);
             var room = viewModel.Rooms[indexPath.Row];
-            cell.TextLabel.Text = room.Name;
-            cell.DetailTextLabel.Text = room.Rate.ToString("#,##0 'IDR / night'");
+            cell.ShowRoom(room);
             return cell;
         }
 
@@ -55,7 +56,7 @@ namespace MyHotel.iOS.ViewControllers.RoomList
         public void RoomListFetched()
         {
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-            TableView.TableFooterView = new UIView(CoreGraphics.CGRect.Empty);
+            TableView.TableFooterView = BlankFooter;
             TableView.ReloadData();
         }
 

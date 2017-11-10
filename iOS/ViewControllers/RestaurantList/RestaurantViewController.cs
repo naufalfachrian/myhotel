@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using MyHotel.iOS.ViewCells.FeedItem;
 using MyHotel.Models;
 using MyHotel.ViewModels;
 using UIKit;
@@ -34,13 +35,13 @@ namespace MyHotel.iOS.ViewControllers.RestaurantList
 
         public override nint RowsInSection(UITableView tableView, nint section) => viewModel.Restaurants.Count;
 
-        public override nfloat GetHeightForRow(UITableView tableView, Foundation.NSIndexPath indexPath) => 52;
+        public override nfloat GetHeightForRow(UITableView tableView, Foundation.NSIndexPath indexPath) => 188;
 
         public override UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell("BaseCell", indexPath);
+            FeedItemViewCell cell = (FeedItemViewCell)tableView.DequeueReusableCell("RestaurantItemViewCell", indexPath);
             var restaurant = viewModel.Restaurants[indexPath.Row];
-            cell.TextLabel.Text = restaurant.Name;
+            cell.ShowRestaurant(restaurant);
             return cell;
         }
 
@@ -59,7 +60,7 @@ namespace MyHotel.iOS.ViewControllers.RestaurantList
         public void RestaurantListFetched()
         {
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-            TableView.TableFooterView = new UIView(CoreGraphics.CGRect.Empty);
+            TableView.TableFooterView = BlankFooter;
             TableView.ReloadData();
         }
 
