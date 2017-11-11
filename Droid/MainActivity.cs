@@ -26,6 +26,7 @@ namespace MyHotel.Droid
                         DisplayRoomListFragment();
                         break;
                     case Resource.Id.actionRestaurant:
+                        DisplayRestaurantFragment();
                         break;
                     case Resource.Id.actionFacility:
                         break;
@@ -36,6 +37,11 @@ namespace MyHotel.Droid
         void DisplayRoomListFragment()
         {
             SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, new RoomListFragment()).Commit();
+        }
+
+        void DisplayRestaurantFragment()
+        {
+            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, new RestaurantListFragment()).Commit();
         }
     }
 }

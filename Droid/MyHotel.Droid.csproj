@@ -113,6 +113,10 @@
     <Compile Include="Fragments\RoomListFragment.cs" />
     <Compile Include="Adapters\RoomAdapter.cs" />
     <Compile Include="BlankItemViewHolder.cs" />
+    <Compile Include="Adapters\RestaurantAdapter.cs" />
+    <Compile Include="ItemViewHolder.cs" />
+    <Compile Include="Fragments\RestaurantListFragment.cs" />
+    <Compile Include="Fragments\BaseListFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
