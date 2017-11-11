@@ -1,11 +1,12 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Support.V7.App;
 
 namespace MyHotel.Droid
 {
     [Activity(Label = "MyHotel", MainLauncher = true, Icon = "@mipmap/icon")]
-    public class MainActivity : Activity
+    public class MainActivity : AppCompatActivity
     {
         int count = 1;
 
