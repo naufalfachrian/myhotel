@@ -14,7 +14,7 @@ namespace MyHotel.Droid.Adapters
         Context context;
         List<RoomModel> rooms;
 
-        const int ROOM_VIEW_HOLDER = 230;
+        const int ITEM = 230;
         const int BLANK_ITEM = 534;
 
         public RoomAdapter(Context context, List<RoomModel> rooms)
@@ -40,7 +40,7 @@ namespace MyHotel.Droid.Adapters
         {
             if (position >= 1 && position <= rooms.Count) 
             {
-                return ROOM_VIEW_HOLDER;
+                return ITEM;
             }
             return BLANK_ITEM;
         }
@@ -48,7 +48,7 @@ namespace MyHotel.Droid.Adapters
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View view;
-            if (viewType == ROOM_VIEW_HOLDER)
+            if (viewType == ITEM)
             {
                 view = LayoutInflater.From(context).Inflate(Resource.Layout.Item, parent, false);
                 return new RoomViewHolder(view);

@@ -8,36 +8,36 @@ using Square.Picasso;
 
 namespace MyHotel.Droid.Adapters
 {
-    public class RestaurantAdapter : RecyclerView.Adapter
+    public class FacilityAdapter : RecyclerView.Adapter
     {
         Context context;
-        List<RestaurantModel> restaurants;
+        List<FacilityModel> facilities;
 
-        const int ITEM = 890;
-        const int BLANK_ITEM = 290;
+        const int ITEM = 801;
+        const int BLANK_ITEM = 230;
 
-        public RestaurantAdapter(Context context, List<RestaurantModel> restaurant)
+        public FacilityAdapter(Context context, List<FacilityModel> facilities)
         {
             this.context = context;
-            this.restaurants = restaurant;
+            this.facilities = facilities;
         }
 
-        public override int ItemCount => restaurants.Count + 2;
+        public override int ItemCount => facilities.Count + 2;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            if (position >= 1 && position <= restaurants.Count)
+            if (position >= 1 && position <= facilities.Count)
             {
                 var viewHolder = holder as ItemViewHolder;
-                var restaurant = restaurants[position - 1];
-                viewHolder.TitleLabel.Text = restaurant.Name;
-                Picasso.With(context).Load(restaurant.ImageUrl).Into(viewHolder.ImageView);
+                var facility = facilities[position - 1];
+                viewHolder.TitleLabel.Text = facility.Name;
+                Picasso.With(context).Load(facility.ImageUrl).Into(viewHolder.ImageView);
             }
         }
 
         public override int GetItemViewType(int position)
         {
-            if (position >= 1 && position <= restaurants.Count)
+            if (position >= 1 && position <= facilities.Count)
             {
                 return ITEM;
             }
