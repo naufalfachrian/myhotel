@@ -10,6 +10,10 @@ namespace MyHotel.Droid
     [Activity(Label = "MyHotel", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : AppCompatActivity
     {
+        RoomListFragment roomListFragment = new RoomListFragment();
+        RestaurantListFragment restaurantListFragment = new RestaurantListFragment();
+        FacilityListFragment facilityListFragment = new FacilityListFragment();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,17 +41,17 @@ namespace MyHotel.Droid
 
         void DisplayRoomListFragment()
         {
-            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, new RoomListFragment()).Commit();
+            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, roomListFragment).Commit();
         }
 
         void DisplayRestaurantFragment()
         {
-            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, new RestaurantListFragment()).Commit();
+            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, restaurantListFragment).Commit();
         }
 
         void DisplayFacilityFragment()
         {
-            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, new FacilityListFragment()).Commit();
+            SupportFragmentManager.BeginTransaction().Replace(Resource.Id.fragment, facilityListFragment).Commit();
         }
     }
 }
