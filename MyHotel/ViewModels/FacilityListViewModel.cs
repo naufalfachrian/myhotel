@@ -8,6 +8,8 @@ namespace MyHotel.ViewModels
 {
     public class FacilityListViewModel : IFetchFacilityListObserver
     {
+        FetchFacilityListNetworkRequest networkRequest;
+
         public IFacilityListViewModelObserver Observer;
 
         List<FacilityModel> facilities = new List<FacilityModel>();
@@ -23,9 +25,14 @@ namespace MyHotel.ViewModels
             }
         }
 
+        public FacilityListViewModel()
+        {
+            networkRequest = new FetchFacilityListNetworkRequest(this);
+        }
+
         public void Fetch()
         {
-            var fetchFacilities = new RestApiClient().FetchFacilityList(this);
+            networkRequest.Enqueue();
             Observer.FetchingFacilityList();
         }
 

@@ -8,6 +8,8 @@ namespace MyHotel.ViewModels
 {
     public class RestaurantListViewModel : IFetchRestaurantListObserver
     {
+        FetchRestaurantListNetworkRequest networkRequest;
+
         public IRestaurantListViewModelObserver Observer;
 
         List<RestaurantModel> restaurants = new List<RestaurantModel>();
@@ -23,9 +25,14 @@ namespace MyHotel.ViewModels
             }
         }
 
+        public RestaurantListViewModel()
+        {
+            networkRequest = new FetchRestaurantListNetworkRequest(this);
+        }
+
         public void Fetch()
         {
-            var fetchRequest = new RestApiClient().FetchRestaurantList(this);
+            networkRequest.Enqueue();
             Observer.FetchingRestaurantList();
         }
 
