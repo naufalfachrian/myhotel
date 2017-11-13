@@ -28,7 +28,7 @@ namespace MyHotel.iOS.ViewControllers.FacilityList
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-            viewModel.Fetch();
+            viewModel.FetchIfNeeded();
         }
 
         public override nint NumberOfSections(UITableView tableView) => 1;

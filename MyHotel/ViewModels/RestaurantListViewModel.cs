@@ -30,6 +30,14 @@ namespace MyHotel.ViewModels
             networkRequest = new FetchRestaurantListNetworkRequest(this);
         }
 
+        public void FetchIfNeeded()
+        {
+            if (restaurants.Count == 0)
+            {
+                Fetch();
+            }
+        }
+
         public void Fetch()
         {
             networkRequest.Enqueue();
