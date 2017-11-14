@@ -36,6 +36,10 @@ namespace MyHotel.ViewModels
             {
                 Fetch();
             }
+            else 
+            {
+                Observer.RestaurantListFetched();
+            }
         }
 
         public void Fetch()

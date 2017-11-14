@@ -8,14 +8,13 @@ namespace MyHotel.Droid.Fragments
 {
     public class FacilityListFragment : BaseListFragment, IFacilityListViewModelObserver
     {
-        FacilityListViewModel viewModel = new FacilityListViewModel();
+        public FacilityListViewModel ViewModel;
 
         public override void OnViewCreated(Android.Views.View view, Android.OS.Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
            
-            viewModel.Observer = this;
-            viewModel.Fetch();
+            ViewModel.FetchIfNeeded();
         }
 
         public void FetchingFacilityList()
@@ -30,7 +29,7 @@ namespace MyHotel.Droid.Fragments
         {
             recylerView.HasFixedSize = true;
             recylerView.SetLayoutManager(new LinearLayoutManager(Context));
-            recylerView.SetAdapter(new FacilityAdapter(Context, viewModel.Facilities));
+            recylerView.SetAdapter(new FacilityAdapter(Context, ViewModel.Facilities));
             progressBar.Visibility = ViewStates.Gone;
         }
     }

@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using MyHotel.Droid.Fragments;
+using MyHotel.ViewModels;
 
 namespace MyHotel.Droid
 {
@@ -17,6 +18,18 @@ namespace MyHotel.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            RoomListViewModel roomListViewModel = new RoomListViewModel();
+            roomListViewModel.Observer = roomListFragment;
+            roomListFragment.ViewModel = roomListViewModel;
+
+            RestaurantListViewModel restaurantListViewModel = new RestaurantListViewModel();
+            restaurantListViewModel.Observer = restaurantListFragment;
+            restaurantListFragment.ViewModel = restaurantListViewModel;
+
+            FacilityListViewModel facilityListViewModel = new FacilityListViewModel();
+            facilityListViewModel.Observer = facilityListFragment;
+            facilityListFragment.ViewModel = facilityListViewModel;
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);

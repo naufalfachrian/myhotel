@@ -19,14 +19,13 @@ namespace MyHotel.Droid.Fragments
 {
     public class RoomListFragment : BaseListFragment, IRoomListViewModelObserver
     {
-        RoomListViewModel viewModel = new RoomListViewModel();
+        public RoomListViewModel ViewModel;
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
 
-            viewModel.Observer = this;
-            viewModel.Fetch();
+            ViewModel.FetchIfNeeded();
         }
 
         public void FetchingRoomList()
@@ -41,7 +40,7 @@ namespace MyHotel.Droid.Fragments
         {
             recylerView.HasFixedSize = true;
             recylerView.SetLayoutManager(new LinearLayoutManager(Context));
-            recylerView.SetAdapter(new RoomAdapter(Context, viewModel.Rooms));
+            recylerView.SetAdapter(new RoomAdapter(Context, ViewModel.Rooms));
             progressBar.Visibility = ViewStates.Gone;
         }
     }
