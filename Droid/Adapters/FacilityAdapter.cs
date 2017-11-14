@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Com.Bumptech.Glide;
 using MyHotel.Models;
-using Square.Picasso;
 
 namespace MyHotel.Droid.Adapters
 {
@@ -31,7 +31,7 @@ namespace MyHotel.Droid.Adapters
                 var viewHolder = holder as ItemViewHolder;
                 var facility = facilities[position - 1];
                 viewHolder.TitleLabel.Text = facility.Name;
-                Picasso.With(context).Load(facility.ImageUrl).Into(viewHolder.ImageView);
+                Glide.With(context).Load(facility.ImageUrl).Into(viewHolder.ImageView);
             }
         }
 

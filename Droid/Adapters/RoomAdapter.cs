@@ -4,8 +4,8 @@ using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Com.Bumptech.Glide;
 using MyHotel.Models;
-using Square.Picasso;
 
 namespace MyHotel.Droid.Adapters
 {
@@ -32,7 +32,7 @@ namespace MyHotel.Droid.Adapters
                 var viewHolder = holder as RoomViewHolder;
                 var room = rooms[position - 1];
                 viewHolder.RoomTitleLabel.Text = room.Name;
-                Picasso.With(context).Load(room.ImageUrl).Into(viewHolder.RoomImageView);
+                Glide.With(context).Load(room.ImageUrl).Into(viewHolder.RoomImageView);
             }
         }
 
