@@ -23,12 +23,14 @@ namespace MyHotel.iOS.ViewControllers.FacilityList
         {
             base.ViewDidLoad();
             viewModel.Observer = this;
+            RefreshControl.ValueChanged += RefreshControlPulled;
         }
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
             viewModel.FetchIfNeeded();
+            RefreshControl.EndRefreshing();
         }
 
         public override nint NumberOfSections(UITableView tableView) => 1;
@@ -68,6 +70,7 @@ namespace MyHotel.iOS.ViewControllers.FacilityList
         public void FacilityListFetched()
         {
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+            RefreshControl.EndRefreshing();
             TableView.TableFooterView = BlankFooter;
             TableView.ReloadData();
         }
@@ -75,9 +78,15 @@ namespace MyHotel.iOS.ViewControllers.FacilityList
         public void FacilityListFailedToFetchBecause(string reason)
         {
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+            RefreshControl.EndRefreshing();
             var alert = UIAlertController.Create(title: "", message: reason, preferredStyle: UIAlertControllerStyle.Alert);
             alert.AddAction(UIAlertAction.Create("Dismiss", UIAlertActionStyle.Default, null));
             PresentViewController(alert, true, null);
+        }
+
+        private void RefreshControlPulled(object sender, EventArgs e)
+        {
+            viewModel.Fetch();
         }
     }
 }
