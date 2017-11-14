@@ -19,18 +19,25 @@ namespace MyHotel.Droid.Fragments
 
         public void FetchingFacilityList()
         {
+            refreshLayout.Refreshing = true;
         }
 
         public void FacilityListFailedToFetchBecause(string reason)
         {
+            refreshLayout.Refreshing = false;
         }
 
         public void FacilityListFetched()
         {
+            refreshLayout.Refreshing = false;
             recylerView.HasFixedSize = true;
             recylerView.SetLayoutManager(new LinearLayoutManager(Context));
             recylerView.SetAdapter(new FacilityAdapter(Context, ViewModel.Facilities));
-            progressBar.Visibility = ViewStates.Gone;
+        }
+
+        protected override void OnRefresh(object sender, EventArgs e)
+        {
+            ViewModel.Fetch();
         }
     }
 }

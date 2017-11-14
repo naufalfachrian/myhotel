@@ -7,6 +7,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.App;
+using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
@@ -14,11 +15,11 @@ using Android.Widget;
 
 namespace MyHotel.Droid.Fragments
 {
-    public class BaseListFragment : Fragment
+    public abstract class BaseListFragment : Fragment
     {
         protected RecyclerView recylerView;
 
-        protected ProgressBar progressBar;
+        protected SwipeRefreshLayout refreshLayout;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -31,7 +32,11 @@ namespace MyHotel.Droid.Fragments
             base.OnViewCreated(view, savedInstanceState);
 
             recylerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            progressBar = view.FindViewById<ProgressBar>(Resource.Id.progressBar);
+            refreshLayout = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
+
+            refreshLayout.Refresh += OnRefresh;
         }
+
+        protected abstract void OnRefresh(object sender, EventArgs e);
     }
 }

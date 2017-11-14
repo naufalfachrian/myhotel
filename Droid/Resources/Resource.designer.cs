@@ -2723,9 +2723,6 @@ namespace MyHotel.Droid
 			// aapt resource value: 0x7f08004c
 			public const int pin = 2131230796;
 			
-			// aapt resource value: 0x7f08009b
-			public const int progressBar = 2131230875;
-			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
 			
@@ -2735,8 +2732,8 @@ namespace MyHotel.Droid
 			// aapt resource value: 0x7f080074
 			public const int radio = 2131230836;
 			
-			// aapt resource value: 0x7f08009a
-			public const int recyclerView = 2131230874;
+			// aapt resource value: 0x7f08009b
+			public const int recyclerView = 2131230875;
 			
 			// aapt resource value: 0x7f080049
 			public const int right = 2131230793;
@@ -2857,6 +2854,9 @@ namespace MyHotel.Droid
 			
 			// aapt resource value: 0x7f080086
 			public const int submit_area = 2131230854;
+			
+			// aapt resource value: 0x7f08009a
+			public const int swipeRefreshLayout = 2131230874;
 			
 			// aapt resource value: 0x7f08001e
 			public const int tabMode = 2131230750;
